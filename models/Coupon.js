@@ -31,6 +31,8 @@ const CouponSchema = new Schema({
 	},
 });
 
-CouponSchema.methods.isExpired = () => this.expiredOn < Date.now();
+CouponSchema.methods.isExpired = function () {
+	return this.expiredOn < Date.now();
+};
 
 module.exports = Coupon = model("coupons", CouponSchema);
